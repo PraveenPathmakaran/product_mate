@@ -38,7 +38,6 @@ class ProductRepoImpl implements ProudctRepo {
   Stream<Either<ProductFailure, List<Product>>> watchAllProduct() async* {
     final userDoc = await _firebaseFirestore.userDocument();
     yield* userDoc.productCollection
-        .orderBy('serverTimeStamp', descending: true)
         .snapshots()
         .map((snapshot) => right<ProductFailure, List<Product>>(snapshot.docs
             .map((doc) =>

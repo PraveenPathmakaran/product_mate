@@ -14,14 +14,10 @@ part 'product_state.dart';
 class ProductBloc extends Bloc<ProductEvent, ProductState> {
   final ProudctRepo _proudctRepo;
   ProductBloc(this._proudctRepo) : super(const ProductState.initial()) {
-    on<ProductEvent>((event, emit) async {
-      await event.map(watchAllProduct: (e) async {
-        emit(const ProductState.loadInProgress());
-        _proudctRepo.watchAllProduct().listen((event) {
-          event.fold((f) => emit(ProductState.loadFailure(f)),
-              (r) => emit(ProductState.loadSuccess(r)));
-        });
-      });
+    on<_WatchAllProduct>((event, emit) async {
+      await emit.forEach(_proudctRepo.watchAllProduct(),
+          onData: (data) => data.fold((f) => ProductState.loadFailure(f),
+              (r) => ProductState.loadSuccess(r)));
     });
   }
 }

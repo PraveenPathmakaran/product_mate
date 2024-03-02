@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:productmate/domain/product/product.dart';
 import 'package:productmate/presentation/core/resource_manager/string_manager.dart';
 import 'package:productmate/presentation/home/home_page.dart';
 import 'package:productmate/presentation/login_pin/create_pin_page.dart';
@@ -7,7 +8,8 @@ import 'package:productmate/presentation/signin/sign_in_page.dart';
 import 'package:productmate/presentation/splash/splash_page.dart';
 
 import 'core/widget/error_widget.dart';
-import 'product_form/product_form_page.dart';
+import 'product/product_form_page.dart';
+import 'product_detail/product_detail_page.dart';
 
 // GoRouter configuration
 final router = GoRouter(
@@ -42,6 +44,12 @@ final router = GoRouter(
       path: RouteNames.productForm,
       builder: (context, state) => const ProductFormPage(),
     ),
+    GoRoute(
+      path: RouteNames.productDetail,
+      builder: (context, state) => ProductPageDetail(
+        product: state.extra as Product,
+      ),
+    ),
   ],
 );
 
@@ -53,4 +61,5 @@ class RouteNames {
   static const String createLogin = '/creatlogin';
   static const String error = '/error';
   static const String productForm = '/productForm';
+  static const String productDetail = '/productDetail';
 }
