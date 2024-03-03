@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -28,6 +29,7 @@ mixin _$ProductFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -38,6 +40,7 @@ mixin _$ProductFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -49,6 +52,7 @@ mixin _$ProductFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -59,6 +63,7 @@ mixin _$ProductFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -69,6 +74,7 @@ mixin _$ProductFormEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -96,6 +102,138 @@ class _$ProductFormEventCopyWithImpl<$Res, $Val extends ProductFormEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$InitializeImplCopyWith<$Res> {
+  factory _$$InitializeImplCopyWith(
+          _$InitializeImpl value, $Res Function(_$InitializeImpl) then) =
+      __$$InitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitializeImplCopyWithImpl<$Res>
+    extends _$ProductFormEventCopyWithImpl<$Res, _$InitializeImpl>
+    implements _$$InitializeImplCopyWith<$Res> {
+  __$$InitializeImplCopyWithImpl(
+      _$InitializeImpl _value, $Res Function(_$InitializeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitializeImpl implements _Initialize {
+  const _$InitializeImpl();
+
+  @override
+  String toString() {
+    return 'ProductFormEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String priceStr) priceChanged,
+    required TResult Function(String heightStr) heightChanged,
+    required TResult Function(String widhtStr) widthChanged,
+    required TResult Function(String lengthStr) lengthChanged,
+    required TResult Function() saved,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String priceStr)? priceChanged,
+    TResult? Function(String heightStr)? heightChanged,
+    TResult? Function(String widhtStr)? widthChanged,
+    TResult? Function(String lengthStr)? lengthChanged,
+    TResult? Function()? saved,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String priceStr)? priceChanged,
+    TResult Function(String heightStr)? heightChanged,
+    TResult Function(String widhtStr)? widthChanged,
+    TResult Function(String lengthStr)? lengthChanged,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_NameChanged value) nameChanged,
+    required TResult Function(_PriceChanged value) priceChanged,
+    required TResult Function(_HeightChanged value) heightChanged,
+    required TResult Function(_WidthChanged value) widthChanged,
+    required TResult Function(_LengthChanged value) lengthChanged,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_NameChanged value)? nameChanged,
+    TResult? Function(_PriceChanged value)? priceChanged,
+    TResult? Function(_HeightChanged value)? heightChanged,
+    TResult? Function(_WidthChanged value)? widthChanged,
+    TResult? Function(_LengthChanged value)? lengthChanged,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_NameChanged value)? nameChanged,
+    TResult Function(_PriceChanged value)? priceChanged,
+    TResult Function(_HeightChanged value)? heightChanged,
+    TResult Function(_WidthChanged value)? widthChanged,
+    TResult Function(_LengthChanged value)? lengthChanged,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialize implements ProductFormEvent {
+  const factory _Initialize() = _$InitializeImpl;
 }
 
 /// @nodoc
@@ -162,6 +300,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -175,6 +314,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -188,6 +328,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -205,6 +346,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -218,6 +360,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -231,6 +374,7 @@ class _$NameChangedImpl implements _NameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -320,6 +464,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -333,6 +478,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -346,6 +492,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -363,6 +510,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -376,6 +524,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -389,6 +538,7 @@ class _$PriceChangedImpl implements _PriceChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -478,6 +628,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -491,6 +642,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -504,6 +656,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -521,6 +674,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -534,6 +688,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -547,6 +702,7 @@ class _$HeightChangedImpl implements _HeightChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -636,6 +792,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -649,6 +806,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -662,6 +820,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -679,6 +838,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -692,6 +852,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -705,6 +866,7 @@ class _$WidthChangedImpl implements _WidthChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -794,6 +956,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -807,6 +970,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -820,6 +984,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -837,6 +1002,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -850,6 +1016,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -863,6 +1030,7 @@ class _$LengthChangedImpl implements _LengthChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,
@@ -925,6 +1093,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function(String nameStr) nameChanged,
     required TResult Function(String priceStr) priceChanged,
     required TResult Function(String heightStr) heightChanged,
@@ -938,6 +1107,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function(String nameStr)? nameChanged,
     TResult? Function(String priceStr)? priceChanged,
     TResult? Function(String heightStr)? heightChanged,
@@ -951,6 +1121,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function(String nameStr)? nameChanged,
     TResult Function(String priceStr)? priceChanged,
     TResult Function(String heightStr)? heightChanged,
@@ -968,6 +1139,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_NameChanged value) nameChanged,
     required TResult Function(_PriceChanged value) priceChanged,
     required TResult Function(_HeightChanged value) heightChanged,
@@ -981,6 +1153,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_NameChanged value)? nameChanged,
     TResult? Function(_PriceChanged value)? priceChanged,
     TResult? Function(_HeightChanged value)? heightChanged,
@@ -994,6 +1167,7 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_NameChanged value)? nameChanged,
     TResult Function(_PriceChanged value)? priceChanged,
     TResult Function(_HeightChanged value)? heightChanged,

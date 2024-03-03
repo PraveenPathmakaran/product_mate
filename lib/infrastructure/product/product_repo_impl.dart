@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:injectable/injectable.dart';
 import 'package:productmate/domain/product/product.dart';
 import 'package:productmate/domain/product/product_failure.dart';
@@ -73,6 +74,38 @@ class ProductRepoImpl implements ProudctRepo {
     } catch (e) {
       log(e.toString(), name: "ProductRepoImpl-createProduct");
       return left(const ProductFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<ProductFailure, List<Product>>> fetchAllProducts() async {
+    try {
+      final userDoc = await _firebaseFirestore.userDocument();
+      final searchResult = await userDoc.productCollection.get();
+      final searchProduct = searchResult.docs
+          .map((e) =>
+              ProductDto.fromJson(e.data() as Map<String, dynamic>).toDomain())
+          .toList();
+
+      return right(searchProduct);
+    } catch (e) {
+      log(e.toString(), name: "ProductRepoImpl-fetchAllProducts");
+      return left(const ProductFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<ProductFailure, ProductName>> qrCodeReader() async {
+    try {
+      String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          "#ff6666", "Cancel", true, ScanMode.QR);
+      if (barcodeScanRes == "-1") {
+        return left(const ProductFailure.userQrCodeCancelled());
+      }
+      return right(ProductName(barcodeScanRes));
+    } catch (e) {
+      log(e.toString(), name: "ProductRepoImpl-qrCodeReader");
+      return left(const ProductFailure.qrCodeFailure());
     }
   }
 }

@@ -20,48 +20,57 @@ class ProductFormBloc extends Bloc<ProductFormEvent, ProductFormState> {
         nameChanged: (e) {
           emit(
             state.copyWith(
-                product: state.product
-                    .copyWith(productName: ProductName(e.nameStr))),
+                product: state.product.copyWith(
+                  productName: ProductName(e.nameStr),
+                ),
+                saveFailureOrSuccessOption: none()),
           );
         },
         priceChanged: (e) {
           emit(
             state.copyWith(
                 product: state.product
-                    .copyWith(productPrice: ProductPrice(e.priceStr))),
+                    .copyWith(productPrice: ProductPrice(e.priceStr)),
+                saveFailureOrSuccessOption: none()),
           );
         },
         heightChanged: (e) {
           emit(state.copyWith(
               product: state.product.copyWith(
                   productMeasureMent: state.product.productMeasureMent
-                      .copyWith(height: MeasureMent(e.heightStr)))));
+                      .copyWith(height: MeasureMent(e.heightStr))),
+              saveFailureOrSuccessOption: none()));
         },
         widthChanged: (e) {
           emit(state.copyWith(
               product: state.product.copyWith(
                   productMeasureMent: state.product.productMeasureMent
-                      .copyWith(width: MeasureMent(e.widhtStr)))));
+                      .copyWith(width: MeasureMent(e.widhtStr))),
+              saveFailureOrSuccessOption: none()));
         },
         lengthChanged: (e) {
           emit(state.copyWith(
               product: state.product.copyWith(
                   productMeasureMent: state.product.productMeasureMent
-                      .copyWith(length: MeasureMent(e.lengthStr)))));
+                      .copyWith(length: MeasureMent(e.lengthStr))),
+              saveFailureOrSuccessOption: none()));
         },
         saved: (e) async {
           Either<ProductFailure, Unit>? failureOrSuccess;
-          emit(state.copyWith(
-              isSaving: true, saveFailureOrSuccessOption: none()));
-
           if (state.product.failureOption.isNone()) {
+            emit(state.copyWith(
+                isSaving: true, saveFailureOrSuccessOption: none()));
             failureOrSuccess =
                 await _proudctRepo.createProduct(product: state.product);
           }
           emit(state.copyWith(
-              isSaving: false,
-              showErrorMessage: true,
-              saveFailureOrSuccessOption: optionOf(failureOrSuccess)));
+            isSaving: false,
+            showErrorMessage: true,
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        },
+        initialize: (value) {
+          emit(ProductFormState.initial());
         },
       );
     });

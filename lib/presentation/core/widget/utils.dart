@@ -6,7 +6,7 @@ class CustomSnackbar {
       SnackBar(
         backgroundColor: color,
         content: Center(child: Text(message)),
-        duration: const Duration(seconds: 3),
+        duration: const Duration(seconds: 2),
       ),
     );
   }

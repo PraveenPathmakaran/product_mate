@@ -19,32 +19,44 @@ mixin _$ProductFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() userQrCodeCancelled,
+    required TResult Function() qrCodeFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? userQrCodeCancelled,
+    TResult? Function()? qrCodeFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? userQrCodeCancelled,
+    TResult Function()? qrCodeFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_UserQrCodeCancelled value) userQrCodeCancelled,
+    required TResult Function(_QrCodeFailure value) qrCodeFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult? Function(_QrCodeFailure value)? qrCodeFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult Function(_QrCodeFailure value)? qrCodeFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +119,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() userQrCodeCancelled,
+    required TResult Function() qrCodeFailure,
   }) {
     return unexpected();
   }
@@ -115,6 +129,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? userQrCodeCancelled,
+    TResult? Function()? qrCodeFailure,
   }) {
     return unexpected?.call();
   }
@@ -123,6 +139,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? userQrCodeCancelled,
+    TResult Function()? qrCodeFailure,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -135,6 +153,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_UserQrCodeCancelled value) userQrCodeCancelled,
+    required TResult Function(_QrCodeFailure value) qrCodeFailure,
   }) {
     return unexpected(this);
   }
@@ -143,6 +163,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult? Function(_QrCodeFailure value)? qrCodeFailure,
   }) {
     return unexpected?.call(this);
   }
@@ -151,6 +173,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult Function(_QrCodeFailure value)? qrCodeFailure,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -162,4 +186,221 @@ class _$UnexpectedImpl implements _Unexpected {
 
 abstract class _Unexpected implements ProductFailure {
   const factory _Unexpected() = _$UnexpectedImpl;
+}
+
+/// @nodoc
+abstract class _$$UserQrCodeCancelledImplCopyWith<$Res> {
+  factory _$$UserQrCodeCancelledImplCopyWith(_$UserQrCodeCancelledImpl value,
+          $Res Function(_$UserQrCodeCancelledImpl) then) =
+      __$$UserQrCodeCancelledImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UserQrCodeCancelledImplCopyWithImpl<$Res>
+    extends _$ProductFailureCopyWithImpl<$Res, _$UserQrCodeCancelledImpl>
+    implements _$$UserQrCodeCancelledImplCopyWith<$Res> {
+  __$$UserQrCodeCancelledImplCopyWithImpl(_$UserQrCodeCancelledImpl _value,
+      $Res Function(_$UserQrCodeCancelledImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UserQrCodeCancelledImpl implements _UserQrCodeCancelled {
+  const _$UserQrCodeCancelledImpl();
+
+  @override
+  String toString() {
+    return 'ProductFailure.userQrCodeCancelled()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserQrCodeCancelledImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() userQrCodeCancelled,
+    required TResult Function() qrCodeFailure,
+  }) {
+    return userQrCodeCancelled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? userQrCodeCancelled,
+    TResult? Function()? qrCodeFailure,
+  }) {
+    return userQrCodeCancelled?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? userQrCodeCancelled,
+    TResult Function()? qrCodeFailure,
+    required TResult orElse(),
+  }) {
+    if (userQrCodeCancelled != null) {
+      return userQrCodeCancelled();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_UserQrCodeCancelled value) userQrCodeCancelled,
+    required TResult Function(_QrCodeFailure value) qrCodeFailure,
+  }) {
+    return userQrCodeCancelled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult? Function(_QrCodeFailure value)? qrCodeFailure,
+  }) {
+    return userQrCodeCancelled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult Function(_QrCodeFailure value)? qrCodeFailure,
+    required TResult orElse(),
+  }) {
+    if (userQrCodeCancelled != null) {
+      return userQrCodeCancelled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserQrCodeCancelled implements ProductFailure {
+  const factory _UserQrCodeCancelled() = _$UserQrCodeCancelledImpl;
+}
+
+/// @nodoc
+abstract class _$$QrCodeFailureImplCopyWith<$Res> {
+  factory _$$QrCodeFailureImplCopyWith(
+          _$QrCodeFailureImpl value, $Res Function(_$QrCodeFailureImpl) then) =
+      __$$QrCodeFailureImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$QrCodeFailureImplCopyWithImpl<$Res>
+    extends _$ProductFailureCopyWithImpl<$Res, _$QrCodeFailureImpl>
+    implements _$$QrCodeFailureImplCopyWith<$Res> {
+  __$$QrCodeFailureImplCopyWithImpl(
+      _$QrCodeFailureImpl _value, $Res Function(_$QrCodeFailureImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$QrCodeFailureImpl implements _QrCodeFailure {
+  const _$QrCodeFailureImpl();
+
+  @override
+  String toString() {
+    return 'ProductFailure.qrCodeFailure()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$QrCodeFailureImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() userQrCodeCancelled,
+    required TResult Function() qrCodeFailure,
+  }) {
+    return qrCodeFailure();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? userQrCodeCancelled,
+    TResult? Function()? qrCodeFailure,
+  }) {
+    return qrCodeFailure?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? userQrCodeCancelled,
+    TResult Function()? qrCodeFailure,
+    required TResult orElse(),
+  }) {
+    if (qrCodeFailure != null) {
+      return qrCodeFailure();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_UserQrCodeCancelled value) userQrCodeCancelled,
+    required TResult Function(_QrCodeFailure value) qrCodeFailure,
+  }) {
+    return qrCodeFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult? Function(_QrCodeFailure value)? qrCodeFailure,
+  }) {
+    return qrCodeFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_UserQrCodeCancelled value)? userQrCodeCancelled,
+    TResult Function(_QrCodeFailure value)? qrCodeFailure,
+    required TResult orElse(),
+  }) {
+    if (qrCodeFailure != null) {
+      return qrCodeFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _QrCodeFailure implements ProductFailure {
+  const factory _QrCodeFailure() = _$QrCodeFailureImpl;
 }

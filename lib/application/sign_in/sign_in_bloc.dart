@@ -75,6 +75,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     }
     emit(state.copyWith(
         isLoading: false,
+        showErrorMessages: true,
         authFailureOrSuccessOption: optionOf(failureOrSuccess)));
   }
 }

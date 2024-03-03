@@ -4,7 +4,13 @@ import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
 import 'package:productmate/application/pin_login/login_pin_bloc.dart';
 import 'package:productmate/presentation/app_router.dart';
+import 'package:productmate/presentation/core/resource_manager/color_manager.dart';
+import 'package:productmate/presentation/core/resource_manager/string_manager.dart';
+import 'package:productmate/presentation/core/resource_manager/style_manager.dart';
 import 'package:productmate/presentation/core/resource_manager/value_manger.dart';
+import 'package:productmate/presentation/core/widget/widgets.dart';
+
+import '../core/resource_manager/asset_manager.dart';
 
 class CreateLoginPage extends StatelessWidget {
   const CreateLoginPage({super.key});
@@ -17,7 +23,7 @@ class CreateLoginPage extends StatelessWidget {
             () => null,
             (a) => a.fold(
                   (l) => null,
-                  (r) => context.go(RouteNames.home),
+                  (r) => context.go(RouteNames.homePage),
                 ));
       },
       child: Scaffold(
@@ -35,11 +41,29 @@ class CreateLoginPage extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      const Text("Create"),
+                      Image.asset(
+                        AssetsManager.lockImage,
+                        height: AppSize.s80,
+                      ),
+                      AppSizedBox.kHeight8,
+                      Text(
+                        StringManager.createYourNewPin,
+                        style: getMediumStyle(
+                          color: ColorManager.whiteColor,
+                          fontSize: AppFont.f20,
+                        ),
+                      ),
+                      Text(
+                        StringManager.createYourNewPinData,
+                        textAlign: TextAlign.center,
+                        style: getLightStyle(color: ColorManager.greyColor),
+                      ),
+                      AppSizedBox.kHeight15,
                       SizedBox(
                         width: double.infinity,
                         child: Pinput(
                           length: 4,
+                          focusNode: FocusNode()..requestFocus(),
                           onCompleted: (pin) {
                             context
                                 .read<LoginPinBloc>()

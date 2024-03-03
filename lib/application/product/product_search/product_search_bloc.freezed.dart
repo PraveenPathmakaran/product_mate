@@ -18,38 +18,50 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ProductSearchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() searchButtonPressed,
+    required TResult Function() qrButtonPressed,
     required TResult Function(String query) queryChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? searchButtonPressed,
+    TResult? Function()? qrButtonPressed,
     TResult? Function(String query)? queryChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? searchButtonPressed,
+    TResult Function()? qrButtonPressed,
     TResult Function(String query)? queryChanged,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchButtonPressed value) searchButtonPressed,
+    required TResult Function(_QrButtonPressed value) qrButtonPressed,
     required TResult Function(_QueryChanged value) queryChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult? Function(_QrButtonPressed value)? qrButtonPressed,
     TResult? Function(_QueryChanged value)? queryChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult Function(_QrButtonPressed value)? qrButtonPressed,
     TResult Function(_QueryChanged value)? queryChanged,
     required TResult orElse(),
   }) =>
@@ -72,6 +84,120 @@ class _$ProductSearchEventCopyWithImpl<$Res, $Val extends ProductSearchEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$InitializeImplCopyWith<$Res> {
+  factory _$$InitializeImplCopyWith(
+          _$InitializeImpl value, $Res Function(_$InitializeImpl) then) =
+      __$$InitializeImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitializeImplCopyWithImpl<$Res>
+    extends _$ProductSearchEventCopyWithImpl<$Res, _$InitializeImpl>
+    implements _$$InitializeImplCopyWith<$Res> {
+  __$$InitializeImplCopyWithImpl(
+      _$InitializeImpl _value, $Res Function(_$InitializeImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitializeImpl implements _Initialize {
+  const _$InitializeImpl();
+
+  @override
+  String toString() {
+    return 'ProductSearchEvent.initialize()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitializeImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() searchButtonPressed,
+    required TResult Function() qrButtonPressed,
+    required TResult Function(String query) queryChanged,
+  }) {
+    return initialize();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? searchButtonPressed,
+    TResult? Function()? qrButtonPressed,
+    TResult? Function(String query)? queryChanged,
+  }) {
+    return initialize?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? searchButtonPressed,
+    TResult Function()? qrButtonPressed,
+    TResult Function(String query)? queryChanged,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SearchButtonPressed value) searchButtonPressed,
+    required TResult Function(_QrButtonPressed value) qrButtonPressed,
+    required TResult Function(_QueryChanged value) queryChanged,
+  }) {
+    return initialize(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult? Function(_QrButtonPressed value)? qrButtonPressed,
+    TResult? Function(_QueryChanged value)? queryChanged,
+  }) {
+    return initialize?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult Function(_QrButtonPressed value)? qrButtonPressed,
+    TResult Function(_QueryChanged value)? queryChanged,
+    required TResult orElse(),
+  }) {
+    if (initialize != null) {
+      return initialize(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialize implements ProductSearchEvent {
+  const factory _Initialize() = _$InitializeImpl;
 }
 
 /// @nodoc
@@ -113,7 +239,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() searchButtonPressed,
+    required TResult Function() qrButtonPressed,
     required TResult Function(String query) queryChanged,
   }) {
     return searchButtonPressed();
@@ -122,7 +250,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? searchButtonPressed,
+    TResult? Function()? qrButtonPressed,
     TResult? Function(String query)? queryChanged,
   }) {
     return searchButtonPressed?.call();
@@ -131,7 +261,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? searchButtonPressed,
+    TResult Function()? qrButtonPressed,
     TResult Function(String query)? queryChanged,
     required TResult orElse(),
   }) {
@@ -144,7 +276,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchButtonPressed value) searchButtonPressed,
+    required TResult Function(_QrButtonPressed value) qrButtonPressed,
     required TResult Function(_QueryChanged value) queryChanged,
   }) {
     return searchButtonPressed(this);
@@ -153,7 +287,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult? Function(_QrButtonPressed value)? qrButtonPressed,
     TResult? Function(_QueryChanged value)? queryChanged,
   }) {
     return searchButtonPressed?.call(this);
@@ -162,7 +298,9 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult Function(_QrButtonPressed value)? qrButtonPressed,
     TResult Function(_QueryChanged value)? queryChanged,
     required TResult orElse(),
   }) {
@@ -175,6 +313,120 @@ class _$SearchButtonPressedImpl implements _SearchButtonPressed {
 
 abstract class _SearchButtonPressed implements ProductSearchEvent {
   const factory _SearchButtonPressed() = _$SearchButtonPressedImpl;
+}
+
+/// @nodoc
+abstract class _$$QrButtonPressedImplCopyWith<$Res> {
+  factory _$$QrButtonPressedImplCopyWith(_$QrButtonPressedImpl value,
+          $Res Function(_$QrButtonPressedImpl) then) =
+      __$$QrButtonPressedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$QrButtonPressedImplCopyWithImpl<$Res>
+    extends _$ProductSearchEventCopyWithImpl<$Res, _$QrButtonPressedImpl>
+    implements _$$QrButtonPressedImplCopyWith<$Res> {
+  __$$QrButtonPressedImplCopyWithImpl(
+      _$QrButtonPressedImpl _value, $Res Function(_$QrButtonPressedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$QrButtonPressedImpl implements _QrButtonPressed {
+  const _$QrButtonPressedImpl();
+
+  @override
+  String toString() {
+    return 'ProductSearchEvent.qrButtonPressed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$QrButtonPressedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() searchButtonPressed,
+    required TResult Function() qrButtonPressed,
+    required TResult Function(String query) queryChanged,
+  }) {
+    return qrButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? searchButtonPressed,
+    TResult? Function()? qrButtonPressed,
+    TResult? Function(String query)? queryChanged,
+  }) {
+    return qrButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? searchButtonPressed,
+    TResult Function()? qrButtonPressed,
+    TResult Function(String query)? queryChanged,
+    required TResult orElse(),
+  }) {
+    if (qrButtonPressed != null) {
+      return qrButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_SearchButtonPressed value) searchButtonPressed,
+    required TResult Function(_QrButtonPressed value) qrButtonPressed,
+    required TResult Function(_QueryChanged value) queryChanged,
+  }) {
+    return qrButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult? Function(_QrButtonPressed value)? qrButtonPressed,
+    TResult? Function(_QueryChanged value)? queryChanged,
+  }) {
+    return qrButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult Function(_QrButtonPressed value)? qrButtonPressed,
+    TResult Function(_QueryChanged value)? queryChanged,
+    required TResult orElse(),
+  }) {
+    if (qrButtonPressed != null) {
+      return qrButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _QrButtonPressed implements ProductSearchEvent {
+  const factory _QrButtonPressed() = _$QrButtonPressedImpl;
 }
 
 /// @nodoc
@@ -241,7 +493,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
     required TResult Function() searchButtonPressed,
+    required TResult Function() qrButtonPressed,
     required TResult Function(String query) queryChanged,
   }) {
     return queryChanged(query);
@@ -250,7 +504,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
     TResult? Function()? searchButtonPressed,
+    TResult? Function()? qrButtonPressed,
     TResult? Function(String query)? queryChanged,
   }) {
     return queryChanged?.call(query);
@@ -259,7 +515,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
     TResult Function()? searchButtonPressed,
+    TResult Function()? qrButtonPressed,
     TResult Function(String query)? queryChanged,
     required TResult orElse(),
   }) {
@@ -272,7 +530,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
     required TResult Function(_SearchButtonPressed value) searchButtonPressed,
+    required TResult Function(_QrButtonPressed value) qrButtonPressed,
     required TResult Function(_QueryChanged value) queryChanged,
   }) {
     return queryChanged(this);
@@ -281,7 +541,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
     TResult? Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult? Function(_QrButtonPressed value)? qrButtonPressed,
     TResult? Function(_QueryChanged value)? queryChanged,
   }) {
     return queryChanged?.call(this);
@@ -290,7 +552,9 @@ class _$QueryChangedImpl implements _QueryChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
     TResult Function(_SearchButtonPressed value)? searchButtonPressed,
+    TResult Function(_QrButtonPressed value)? qrButtonPressed,
     TResult Function(_QueryChanged value)? queryChanged,
     required TResult orElse(),
   }) {

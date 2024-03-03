@@ -12,4 +12,6 @@ abstract interface class ProudctRepo {
   Future<Either<ProductFailure, List<Product>>> searchProduct({
     required ProductName query,
   });
+  Future<Either<ProductFailure, ProductName>> qrCodeReader();
+  Future<Either<ProductFailure, List<Product>>> fetchAllProducts();
 }

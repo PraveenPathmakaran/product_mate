@@ -26,7 +26,7 @@ class LoadingProgress extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 CircularProgressIndicator(
-                  color: ColorManager.primaryColor,
+                  color: ColorManager.whiteColor,
                 ),
                 AppSizedBox.kHeight8,
                 Text(

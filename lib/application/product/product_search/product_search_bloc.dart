@@ -42,6 +42,30 @@ class ProductSearchBloc extends Bloc<ProductSearchEvent, ProductSearchState> {
             searchFailureOrSuccessOption: none(),
           ));
         },
+        initialize: (value) async {
+          Either<ProductFailure, List<Product>> failureOrSuccess =
+              await _proudctRepo.fetchAllProducts();
+
+          failureOrSuccess.fold(
+              (failure) => null,
+              (product) =>
+                  emit(state.copyWith(isLoading: false, productList: product)));
+
+          emit(state.copyWith(
+            isLoading: false,
+            showErrorMessage: true,
+            searchFailureOrSuccessOption: optionOf(failureOrSuccess),
+          ));
+        },
+        qrButtonPressed: (value) async {
+          Either<ProductFailure, ProductName> failureOrSuccessqr =
+              await _proudctRepo.qrCodeReader();
+          failureOrSuccessqr.fold(
+              (l) {}, (r) async {
+            emit(state.copyWith(query: r));
+            add(const ProductSearchEvent.searchButtonPressed());
+          });
+        },
       );
     });
   }

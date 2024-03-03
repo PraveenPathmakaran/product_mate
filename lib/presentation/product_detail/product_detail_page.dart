@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:productmate/presentation/core/resource_manager/color_manager.dart';
+import 'package:productmate/presentation/core/resource_manager/string_manager.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../domain/product/product.dart';
@@ -13,7 +14,8 @@ class ProductPageDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Product Details'),
+        title: const Text(StringManager.productsDetails),
+        elevation: 0,
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -22,14 +24,15 @@ class ProductPageDetail extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               _buildTableRow(
-                  'Product Name', '${product.productName.getOrCrash()}'),
-              _buildTableRow('Price:', '${product.productPrice.getOrCrash()}'),
-              _buildTableRow('Height',
-                  '${product.productMeasureMent.height.getOrCrash()}'),
+                  'Product Name :', '${product.productName.getOrCrash()}'),
               _buildTableRow(
-                  'Width', '${product.productMeasureMent.width.getOrCrash()}'),
-              _buildTableRow('Length',
-                  '${product.productMeasureMent.length.getOrCrash()}'),
+                  'Price :', '₹ ${product.productPrice.getOrCrash()}'),
+              _buildTableRow('Height :',
+                  '${product.productMeasureMent.height.getOrCrash()} m'),
+              _buildTableRow('Width :',
+                  '${product.productMeasureMent.width.getOrCrash()} m'),
+              _buildTableRow('Length :',
+                  '${product.productMeasureMent.length.getOrCrash()} m'),
               const SizedBox(height: 20.0),
               const Text(
                 'Name QR:',
@@ -43,7 +46,7 @@ class ProductPageDetail extends StatelessWidget {
               ),
               const SizedBox(height: 20.0),
               const Text(
-                'Id QR:',
+                'ID QR:',
                 style: TextStyle(fontSize: 20.0),
               ),
               QrImageView(

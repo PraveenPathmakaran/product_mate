@@ -31,7 +31,7 @@ class SplashPage extends StatelessWidget {
         BlocListener<LoginPinBloc, LoginPinState>(
           listener: (context, state) {
             state.isPinFound.fold(
-              () => context.go(RouteNames.error),
+              () {},
               (a) => a
                   ? context.go(RouteNames.pinLoginPage)
                   : context.go(RouteNames.createLogin),

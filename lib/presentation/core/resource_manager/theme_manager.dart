@@ -18,7 +18,7 @@ ThemeData getApplicationTheme() {
         elevation: AppSize.s4,
       ),
       appBarTheme: AppBarTheme(
-        backgroundColor: ColorManager.darkColor,
+        backgroundColor: ColorManager.semiDarkColor,
         foregroundColor: ColorManager.whiteColor,
         centerTitle: true,
       ),
@@ -35,7 +35,8 @@ ThemeData getApplicationTheme() {
         backgroundColor: ColorManager.primaryColor,
         foregroundColor: ColorManager.whiteColor,
       )),
-
+      textSelectionTheme:
+          TextSelectionThemeData(cursorColor: ColorManager.whiteColor),
       // Text theme
       textTheme: TextTheme(
         displayLarge: getSemiBoldStyle(
@@ -59,15 +60,16 @@ ThemeData getApplicationTheme() {
       // input decoration theme (text form field)
 
       inputDecorationTheme: InputDecorationTheme(
+        prefixIconColor: ColorManager.greyColor,
         fillColor: ColorManager.semiDarkColor,
         filled: true,
 
         contentPadding: const EdgeInsets.all(AppPadding.p8),
         // hint style
-        hintStyle: getRegularStyle(color: ColorManager.whiteColor),
+        hintStyle: getRegularStyle(color: ColorManager.greyColor),
 
         // label style
-        labelStyle: getMediumStyle(color: ColorManager.blackColor),
+        labelStyle: getMediumStyle(color: ColorManager.whiteColor),
         // error style
         errorStyle: getRegularStyle(color: ColorManager.errorColor),
 
@@ -78,9 +80,10 @@ ThemeData getApplicationTheme() {
 
         // focused border
         focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: ColorManager.blackColor, width: AppSize.s1_5),
-            borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8))),
+          borderSide:
+              BorderSide(color: ColorManager.whiteColor, width: AppSize.s1_5),
+          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        ),
 
         // error border
         errorBorder: OutlineInputBorder(
@@ -89,8 +92,8 @@ ThemeData getApplicationTheme() {
             borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8))),
         // focused error border
         focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: ColorManager.semiDarkColor, width: AppSize.s1_5),
+            borderSide:
+                BorderSide(color: ColorManager.errorColor, width: AppSize.s1_5),
             borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8))),
       ),
       colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -99,6 +102,6 @@ ThemeData getApplicationTheme() {
       progressIndicatorTheme:
           ProgressIndicatorThemeData(color: ColorManager.whiteColor),
       iconTheme: IconThemeData(
-        color: ColorManager.whiteColor,
+        color: ColorManager.greyColor,
       ));
 }

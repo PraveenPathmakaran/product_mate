@@ -5,9 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:productmate/application/auth/auth_bloc.dart';
 import 'package:productmate/application/pin_login/login_pin_bloc.dart';
 import 'package:productmate/application/product/product_bloc.dart';
+import 'package:productmate/application/product/product_search/product_search_bloc.dart';
 
-import '../../application/product/product_form_bloc/product_form_bloc.dart';
-import '../../application/product/product_search/product_search_bloc.dart';
 import '../../application/sign_in/sign_in_bloc.dart';
 import '../../injection.dart';
 import '../app_router.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
               getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),
         BlocProvider(
-          create: (context) => getIt<SignInBloc>(), // todo need to remove
+          create: (context) => getIt<SignInBloc>(),
         ),
         BlocProvider<LoginPinBloc>(
           create: (context) => getIt<LoginPinBloc>(),
@@ -36,13 +35,9 @@ class MyApp extends StatelessWidget {
           create: (context) =>
               getIt<ProductBloc>()..add(const ProductEvent.watchAllProduct()),
         ),
-        BlocProvider(
+        BlocProvider<ProductSearchBloc>(
           create: (context) => getIt<ProductSearchBloc>()
-            ..add(const ProductSearchEvent
-                .searchButtonPressed()), // todo need to remove
-        ),
-        BlocProvider(
-          create: (context) => getIt<ProductFormBloc>(), // todo need to remove
+            ..add(const ProductSearchEvent.initialize()),
         ),
       ],
       child: MaterialApp.router(
