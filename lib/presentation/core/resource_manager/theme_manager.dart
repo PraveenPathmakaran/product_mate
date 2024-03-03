@@ -17,6 +17,14 @@ ThemeData getApplicationTheme() {
         color: ColorManager.primaryColor,
         elevation: AppSize.s4,
       ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: ColorManager.darkColor,
+        foregroundColor: ColorManager.whiteColor,
+        centerTitle: true,
+      ),
+      listTileTheme: ListTileThemeData(
+        tileColor: ColorManager.semiDarkColor,
+      ),
 
       // elevated button theme
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -90,13 +98,7 @@ ThemeData getApplicationTheme() {
       ),
       progressIndicatorTheme:
           ProgressIndicatorThemeData(color: ColorManager.whiteColor),
-      dialogTheme: DialogTheme(
-        elevation: 0,
-        backgroundColor: ColorManager.whiteColor,
-        alignment: Alignment.center,
-        titleTextStyle: getRegularStyle(
-          color: ColorManager.whiteColor,
-          fontSize: FontSize.s20,
-        ),
+      iconTheme: IconThemeData(
+        color: ColorManager.whiteColor,
       ));
 }

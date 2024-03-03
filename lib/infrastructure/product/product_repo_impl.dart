@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:productmate/domain/product/product.dart';
 import 'package:productmate/domain/product/product_failure.dart';
 import 'package:productmate/domain/product/product_repo.dart';
+import 'package:productmate/domain/product/product_value_object.dart';
 import 'package:productmate/infrastructure/core/firestore_helper.dart';
 import 'package:productmate/infrastructure/product/product_dtos.dart';
 import 'package:rxdart/rxdart.dart';
@@ -47,5 +48,31 @@ class ProductRepoImpl implements ProudctRepo {
         .onErrorReturnWith((error, stackTrace) => left(
               const ProductFailure.unexpected(),
             ));
+  }
+
+  @override
+  Future<Either<ProductFailure, List<Product>>> searchProduct({
+    required ProductName query,
+  }) async {
+    try {
+      final userDoc = await _firebaseFirestore.userDocument();
+      final String productNameDto = query.getOrCrash();
+
+      final searchResult = await userDoc.productCollection.get();
+      final searchProduct = searchResult.docs
+          .map((e) =>
+              ProductDto.fromJson(e.data() as Map<String, dynamic>).toDomain())
+          .toList()
+          .where((element) => element.productName
+              .getOrCrash()
+              .toString()
+              .toLowerCase()
+              .contains(productNameDto.toLowerCase()))
+          .toList();
+      return right(searchProduct);
+    } catch (e) {
+      log(e.toString(), name: "ProductRepoImpl-createProduct");
+      return left(const ProductFailure.unexpected());
+    }
   }
 }

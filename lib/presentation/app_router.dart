@@ -4,6 +4,7 @@ import 'package:productmate/presentation/core/resource_manager/string_manager.da
 import 'package:productmate/presentation/home/home_page.dart';
 import 'package:productmate/presentation/login_pin/create_pin_page.dart';
 import 'package:productmate/presentation/login_pin/login_pin_page.dart';
+import 'package:productmate/presentation/product/product_search_page.dart';
 import 'package:productmate/presentation/signin/sign_in_page.dart';
 import 'package:productmate/presentation/splash/splash_page.dart';
 
@@ -50,6 +51,10 @@ final router = GoRouter(
         product: state.extra as Product,
       ),
     ),
+    GoRoute(
+      path: RouteNames.search,
+      builder: (context, state) => SearchPage(),
+    ),
   ],
 );
 
@@ -62,4 +67,5 @@ class RouteNames {
   static const String error = '/error';
   static const String productForm = '/productForm';
   static const String productDetail = '/productDetail';
+  static const String search = '/search';
 }

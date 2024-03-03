@@ -19,35 +19,46 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt<ProductBloc>()..add(const ProductEvent.watchAllProduct()),
-      child:
-          Scaffold(body: SafeArea(child: BlocBuilder<ProductBloc, ProductState>(
-        builder: (context, state) {
-          log(state.toString());
-          return state.map(
-              initial: (value) => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-              loadInProgress: (value) => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-              loadSuccess: (value) {
-                return ListView.separated(
-                    itemBuilder: (context, index) => ListTile(
-                          onTap: () => context.push(RouteNames.productDetail,
-                              extra: value.product[index]),
-                          title: Text(
-                            value.product[index].productName.getOrCrash(),
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                    separatorBuilder: (context, index) => AppSizedBox.kHeight10,
-                    itemCount: value.product.length);
-              },
-              loadFailure: (value) => const AppErrorWidget(
-                    errorMessage: StringManager.somethingWentWrong,
-                  ));
-        },
-      ))),
+      child: Scaffold(
+          appBar: AppBar(
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    context.push(RouteNames.search);
+                  },
+                  icon: const Icon(Icons.search))
+            ],
+          ),
+          body: SafeArea(child: BlocBuilder<ProductBloc, ProductState>(
+            builder: (context, state) {
+              log(state.toString());
+              return state.map(
+                  initial: (value) => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                  loadInProgress: (value) => const Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                  loadSuccess: (value) {
+                    return ListView.separated(
+                        itemBuilder: (context, index) => ListTile(
+                              onTap: () => context.push(
+                                  RouteNames.productDetail,
+                                  extra: value.product[index]),
+                              title: Text(
+                                value.product[index].productName.getOrCrash(),
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                        separatorBuilder: (context, index) =>
+                            AppSizedBox.kHeight10,
+                        itemCount: value.product.length);
+                  },
+                  loadFailure: (value) => const AppErrorWidget(
+                        errorMessage: StringManager.somethingWentWrong,
+                      ));
+            },
+          ))),
     );
   }
 }
