@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:productmate/application/sign_in/sign_in_bloc.dart';
-import 'package:productmate/injection.dart';
 import 'package:productmate/presentation/core/resource_manager/color_manager.dart';
 import 'package:productmate/presentation/core/resource_manager/string_manager.dart';
 import 'package:productmate/presentation/core/resource_manager/style_manager.dart';
@@ -20,41 +19,38 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => getIt<SignInBloc>(),
-      child: BlocBuilder<SignInBloc, SignInState>(
-        builder: (context, state) {
-          return Scaffold(
-            resizeToAvoidBottomInset: false,
-            body: SafeArea(
-                child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(AppPadding.p30),
-                child: SizedBox(
-                  child: Stack(
-                    children: [
-                      const Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          TopWidget(),
-                          FormFieldWidget(),
-                          ButtonAreaWidget(),
-                        ],
+    return BlocBuilder<SignInBloc, SignInState>(
+      builder: (context, state) {
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: SafeArea(
+              child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(AppPadding.p30),
+              child: SizedBox(
+                child: Stack(
+                  children: [
+                    const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        TopWidget(),
+                        FormFieldWidget(),
+                        ButtonAreaWidget(),
+                      ],
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: LoadingProgress(
+                        isSaving: state.isLoading,
                       ),
-                      Align(
-                        alignment: Alignment.center,
-                        child: LoadingProgress(
-                          isSaving: state.isLoading,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            )),
-          );
-        },
-      ),
+            ),
+          )),
+        );
+      },
     );
   }
 }

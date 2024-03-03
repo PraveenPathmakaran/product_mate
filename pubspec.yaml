@@ -46,6 +46,7 @@ dependencies:
   injectable: ^2.3.2
   json_annotation: ^4.8.1
   pinput: ^4.0.0
+  qr_code_scanner: ^1.0.1
   qr_flutter: ^4.1.0
   rxdart: ^0.27.7
   uuid: ^4.3.3

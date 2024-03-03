@@ -5,6 +5,7 @@ import 'package:productmate/presentation/home/home_page.dart';
 import 'package:productmate/presentation/login_pin/create_pin_page.dart';
 import 'package:productmate/presentation/login_pin/login_pin_page.dart';
 import 'package:productmate/presentation/product/product_search_page.dart';
+import 'package:productmate/presentation/product/qr_view_page.dart';
 import 'package:productmate/presentation/signin/sign_in_page.dart';
 import 'package:productmate/presentation/splash/splash_page.dart';
 
@@ -55,6 +56,10 @@ final router = GoRouter(
       path: RouteNames.search,
       builder: (context, state) => SearchPage(),
     ),
+    GoRoute(
+      path: RouteNames.qrPage,
+      builder: (context, state) => const QrViewPage(),
+    ),
   ],
 );
 
@@ -68,4 +73,5 @@ class RouteNames {
   static const String productForm = '/productForm';
   static const String productDetail = '/productDetail';
   static const String search = '/search';
+  static const String qrPage = '/qrPage';
 }
