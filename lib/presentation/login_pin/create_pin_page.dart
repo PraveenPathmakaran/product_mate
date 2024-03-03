@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
+import 'package:productmate/application/auth/auth_bloc.dart';
 import 'package:productmate/application/pin_login/login_pin_bloc.dart';
 import 'package:productmate/presentation/app_router.dart';
 import 'package:productmate/presentation/core/resource_manager/color_manager.dart';
@@ -17,15 +18,28 @@ class CreateLoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginPinBloc, LoginPinState>(
-      listener: (context, state) {
-        state.pinFailureOrSuccess.fold(
-            () => null,
-            (a) => a.fold(
-                  (l) => null,
-                  (r) => context.go(RouteNames.homePage),
-                ));
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<LoginPinBloc, LoginPinState>(
+          listener: (context, state) {
+            state.pinFailureOrSuccess.fold(
+                () => null,
+                (a) => a.fold(
+                      (l) => null,
+                      (r) => context
+                          .read<AuthBloc>()
+                          .add(const AuthEvent.authCheckRequested()),
+                    ));
+          },
+        ),
+        BlocListener<AuthBloc, AuthState>(
+          listener: (context, state) {
+            state.maybeMap(
+                orElse: () {},
+                authenticated: (_) => context.go(RouteNames.homePage));
+          },
+        ),
+      ],
       child: Scaffold(
           resizeToAvoidBottomInset: false,
           body: SafeArea(
